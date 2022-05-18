@@ -1,0 +1,24 @@
+.memeItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    max-height: 200px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    transition: box-shadow 400ms;
+  }
+  
+  .memeItem:hover {
+    cursor: pointer;
+    -webkit-box-shadow: 2px 7px 24px -4px #000000; 
+    box-shadow: 2px 7px 24px -4px #000000;
+    transition: box-shadow 400ms;
+  }
+  
+  .memeImage {
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
