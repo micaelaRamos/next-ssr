@@ -3,7 +3,9 @@ import Image from '../../../components/Image'
 
 export default function MemeDetail({ meme, onClickClose}) {
   return (
+    <>
     <div className={styles.memeDetail}>
+      <button className={styles.closeButton} onClick={() => onClickClose()}><b>X</b></button>
       <h1>{meme.name}</h1>
       <div className={styles.imageContainer}>
         <Image
@@ -12,8 +14,8 @@ export default function MemeDetail({ meme, onClickClose}) {
           className={styles.detailImage}
         />
       </div>
-      <button className={styles.closeButton} onClick={() => onClickClose()}>Close</button>
     </div>
-
+    <div className={styles.detailContainer} />
+    </>
   )
 }
