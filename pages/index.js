@@ -16,12 +16,25 @@ export async function getStaticProps() {
 };
 
 export default function Home({ memes }) {
-  const [memeOfTheDay, setMemeOfTheDay] = useState(null);
   const [displayDetail, setDisplayDetail] = useState(false);
   const [selectedMeme, setSelectedMeme] = useState(null);
+  const [memeOfTheDay, setMemeOfTheDay] = useState(null);
 
   const onClickMeme = (meme) => {
     setSelectedMeme(meme);
+    setDisplayDetail(true);
+  }
+
+  const showMemeOfTheDay = () => {
+    if(memeOfTheDay) {
+      setSelectedMeme(memeOfTheDay);
+      setDisplayDetail(true);
+      return;
+    }
+  
+    const randomMemeIndex = Math.round((Math.random() * memes.length) - 1);
+    setMemeOfTheDay({ ...memes[randomMemeIndex], memeOfTheDay: true });
+    setSelectedMeme({ ...memes[randomMemeIndex], memeOfTheDay: true });
     setDisplayDetail(true);
   }
 
@@ -36,11 +49,11 @@ export default function Home({ memes }) {
       <main className={styles.main}>
         <div className={styles.header}>
           
-          <button>Get my meme of the day</button>
+          <button className={styles.memeOfTheDay} onClick={() => showMemeOfTheDay()}>Get my meme of the day</button>
         </div>
         <div className={styles.memeContainer}>
           { memes?.length === 0 ? (<p>Loading...</p>) :
-            (memes.map(meme => <Meme meme={meme} onClick={onClickMeme} />))
+            (memes.map(meme => <Meme meme={meme} onClick={onClickMeme} key={meme.id} />))
           }
         </div>
        { displayDetail &&

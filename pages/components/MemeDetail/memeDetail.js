@@ -29,6 +29,11 @@ export default function MemeDetail({ meme, onClickClose}) {
     <div className={styles.memeDetail}>
       <button className={styles.closeButton} onClick={() => onClickClose()}><b>X</b></button>
       <h1>{meme.name}</h1>
+      {meme.memeOfTheDay && 
+      <div className={styles.memeOfTheDayTitleContainer}>
+        <h2 className={styles.memeOfTheDayTitle}>This is your meme of the day!</h2>
+      </div>
+      }
       <div className={styles.imageContainer}>
         <Image
           src={meme.url}

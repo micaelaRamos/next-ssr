@@ -23,7 +23,6 @@
 
     width: 700px;
     max-width: 100%;
-    padding: 20px;
     border-radius: 6px;
     background-color: white;
     -webkit-box-shadow: 2px 7px 24px -4px #000000; 
@@ -54,4 +53,14 @@
     cursor: pointer;
     background-color: #f5f5f5;
     transition: background-color ease-in 80ms;
+}
+
+.memeOfTheDayTitleContainer {
+    width: 100%;
+    background-color: black;
+}
+
+.memeOfTheDayTitle {
+    color: white;
+    text-align: center;
 }
