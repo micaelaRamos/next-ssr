@@ -1,7 +1,29 @@
-import styles from '../../../styles/MemeDetail.module.css'
-import Image from '../../../components/Image'
+import React, { useEffect } from 'react';
+
+import styles from '../../../styles/MemeDetail.module.css';
+import Image from '../../../components/Image';
 
 export default function MemeDetail({ meme, onClickClose}) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.addEventListener('keydown', (event) => {
+      if(event.key === "Escape") {
+        onClickClose();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (event.target.id == 'outside-modal') {
+        onClickClose();
+      }
+    });
+
+    return () => {
+      document.removeEventListener('keydown', () => {});
+      document.removeEventListener('click', () => {});
+    }
+  }, [onClickClose]);
+
   return (
     <>
     <div className={styles.memeDetail}>
@@ -15,7 +37,7 @@ export default function MemeDetail({ meme, onClickClose}) {
         />
       </div>
     </div>
-    <div className={styles.detailContainer} />
+    <div className={styles.detailContainer} id='outside-modal'/>
     </>
   )
 }

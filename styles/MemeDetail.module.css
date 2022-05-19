@@ -47,4 +47,11 @@
     background: white;
     border-radius: 6px;
     border: none;
+    transition: background-color ease-in 80ms;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+    transition: background-color ease-in 80ms;
 }
