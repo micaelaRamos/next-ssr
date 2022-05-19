@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Meme from './components/Meme';
 import MemeDetail from './components/MemeDetail';
@@ -19,6 +19,20 @@ export default function Home({ memes }) {
   const [displayDetail, setDisplayDetail] = useState(false);
   const [selectedMeme, setSelectedMeme] = useState(null);
   const [memeOfTheDay, setMemeOfTheDay] = useState(null);
+  const [scrolled, updateScrolledStatus] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[]);
+
+  const handleScroll = () => {
+    const scroll = window.scrollY;
+    updateScrolledStatus(scroll);
+  };
 
   const onClickMeme = (meme) => {
     setSelectedMeme(meme);
@@ -47,8 +61,8 @@ export default function Home({ memes }) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.header}>
-          
+        <div className={`${styles.header} ${scrolled > 0 ? styles.headerScrolled : ''}`}>
+          <h3>Welcome to memes templates page!</h3>
           <button className={styles.memeOfTheDay} onClick={() => showMemeOfTheDay()}>Get my meme of the day</button>
         </div>
         <div className={styles.memeContainer}>
