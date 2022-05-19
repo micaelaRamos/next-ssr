@@ -4,6 +4,8 @@ import styles from '../../../styles/MemeDetail.module.css';
 import Image from '../../../components/Image';
 
 export default function MemeDetail({ meme, onClickClose}) {
+  if (!meme) return null;
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     document.addEventListener('keydown', (event) => {
