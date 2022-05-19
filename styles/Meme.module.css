@@ -15,10 +15,3 @@
     box-shadow: 2px 7px 24px -4px #000000;
     transition: box-shadow 400ms;
   }
-  
-  .memeImage {
-    width: fit-content;
-    max-width: 100%;
-    height: auto;
-    max-height: 100%;
-  }

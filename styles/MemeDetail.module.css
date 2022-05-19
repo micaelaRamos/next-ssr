@@ -3,10 +3,28 @@
     padding: 20px;
     top: 32px;
     background-color: white;
+    width: 75%;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     -webkit-box-shadow: 2px 7px 24px -4px #000000; 
     box-shadow: 2px 7px 24px -4px #000000;
+}
+
+.imageContainer {
+    width: 600px;
+    height: 600px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.closeButton {
+    align-self: flex-start;
+    padding: 10px 23px;
+    background: white;
+    border-radius: 6px;
+    border: solid 1px #333;
 }
