@@ -62,7 +62,7 @@ export default function PageContent({ memes, title, page }) {
         </div>
         <div className={styles.memeContainer}>
           { memes?.length === 0 ? (<p>Loading...</p>) :
-            (memes.map(meme => <Meme meme={meme} onClick={onClickMeme} key={meme.id} />))
+            ( memes?.length && memes.map(meme => <Meme meme={meme} onClick={onClickMeme} key={meme.id} />))
           }
         </div>
        { displayDetail &&
