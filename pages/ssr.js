@@ -9,6 +9,10 @@ export async function getServerSideProps() {
 
 export default function Ssr({ memes }) {
   return (
-    <PageContent memes={memes} title="Server Side Rendering" />
+    <PageContent
+      memes={memes}
+      title="Server Side Rendering"
+      page="ssr"
+    />
   )
 }

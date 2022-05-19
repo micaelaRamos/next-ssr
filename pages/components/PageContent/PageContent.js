@@ -5,7 +5,9 @@ import { useState, useEffect } from 'react';
 import Meme from '../Meme';
 import MemeDetail from '../MemeDetail';
 
-export default function PageContent({ memes, title }) {
+import NavBar from '../../../components/NavBar/NavBar';
+
+export default function PageContent({ memes, title, page }) {
   const [displayDetail, setDisplayDetail] = useState(false);
   const [selectedMeme, setSelectedMeme] = useState(null);
   const [memeOfTheDay, setMemeOfTheDay] = useState(null);
@@ -52,7 +54,10 @@ export default function PageContent({ memes, title }) {
 
       <main className={styles.main}>
         <div className={`${styles.header} ${scrolled > 0 ? styles.headerScrolled : ''}`}>
-          <h3>Memes page with {title}!</h3>
+          <div>
+            <NavBar actualPage={page} />
+            <h3 className={styles.title}>Memes page with {title}!</h3>
+          </div>
           <button className={styles.memeOfTheDay} onClick={() => showMemeOfTheDay()}>Get my meme of the day</button>
         </div>
         <div className={styles.memeContainer}>

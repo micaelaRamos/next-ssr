@@ -4,13 +4,17 @@ import PageContent from './components/PageContent';
 
 export async function getStaticProps() {
   const memes = await getMemes();
-  return {props: { memes }};
+  return { props: { memes } };
 };
 
 function StaticProps({ memes }) {
   return (
-    <PageContent memes={memes} title="Static Rendering"/>
+    <PageContent
+      memes={memes}
+      title="Static Rendering"
+      page="static"
+    />
   )
-  }
+}
   
-  export default StaticProps;
+export default StaticProps;

@@ -12,9 +12,13 @@ export default function Home() {
     }
 
     getPageInfo();
-  }, [memes, setMemes])
+  }, [])
 
   return (
-    <PageContent memes={memes} title="Client Side Fetch" />
+    <PageContent
+      memes={memes}
+      title="Client Side Fetch"
+      page="client"
+    />
   )
 }

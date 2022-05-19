@@ -32,6 +32,11 @@
   align-items: center;
 }
 
+.title {
+  margin: 0;
+  line-height: 1.7;
+}
+
 .memeContainer {
   width: 100%;
   display: grid;
